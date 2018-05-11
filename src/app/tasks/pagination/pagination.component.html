@@ -1,0 +1,9 @@
+<ng-content></ng-content>
+<section class="pagination container">
+  <ul>
+    <li *ngFor="let item of pages" class="z-depth-2 blue" (click)="setActivePage(item.number)">
+      {{item.number}}
+    </li>
+  </ul>
+</section>
+

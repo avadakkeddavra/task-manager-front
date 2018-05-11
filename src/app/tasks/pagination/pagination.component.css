@@ -1,0 +1,22 @@
+section.pagination{
+
+}
+section.pagination ul{
+  text-align: center;
+  margin: 0;
+  margin-bottom: 20px;
+}
+section.pagination ul li{
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  margin: 0px 5px;
+  border-radius: 500px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+section.pagination ul li:hover{
+  background-color: #3bd586 !important;
+}

@@ -1,0 +1,47 @@
+<ng-content></ng-content>
+<section class="create-task container">
+  <form action="" ngForm="form"  [class]="formShow == 1 ? '': 'hide' " #form (submit)="createTask($event,form)" >
+    <div class="row">
+      <div class="col s1 input-field">
+        <input type="number" id="task_id" name="task_id"  #task_id required >
+        <label for="task_id">#Task id</label>
+      </div>
+      <div class="col s2 input-field">
+        <input type="text" id="name" name="name" #name required>
+        <label for="task_id">Name</label>
+      </div>
+      <div class="col s2 input-field">
+        <select name="status" id="status" materialize="material_select" #status required>
+          <option value="1">in progress</option>
+          <option value="2">done</option>
+          <option value="3">completed</option>
+        </select>
+        <label for="status">Status</label>
+      </div>
+      <div class="col s3 input-field">
+        <select name="project_id" id="project_id" materialize="material_select" #project required>
+          <option *ngFor="let project of projects" value="{{project.id}}">{{project.name}}</option>
+        </select>
+        <label for="project_id">Project</label>
+      </div>
+      <div class="col s1 input-field">
+        <input type="number" id="estimated" name="estimated" #estimated required>
+        <label for="estimated">Estimated</label>
+      </div>
+      <div class="col s1 input-field">
+        <input type="number" id="spent" name="spent" #spent>
+        <label for="task_id">Spent</label>
+      </div>
+      <div class="col s1 input-field">
+        <input type="number" id="date" name="date" materialize="pickadate" #date required>
+        <label for="task_id">Date</label>
+      </div>
+      <div class="col s1 input-field">
+        <button type="submit" class="btn-flat pull-left green-text"><i class="fa fa-floppy-o"></i></button>
+        <button type="button" class="btn-flat pull-left red-text" (click)="showForm()"><i class="fa fa-close"></i></button>
+      </div>
+    </div>
+  </form>
+  <button (click)="showForm()" [class]="formShow == 0 ? 'btn-flat show-form': 'hide' "><i class="fa fa-plus"></i> Create task</button>
+</section>
+

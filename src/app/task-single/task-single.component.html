@@ -1,0 +1,40 @@
+<section class="task-single container">
+  <h3>{{task.name}}</h3>
+  <div class="row task-info">
+    <div class="col s4">
+      <h5>{{task.status == 1 ? 'in progress' : task.status == 2 ? 'done' : "completed"}}</h5>
+      <span class="title">current status</span>
+    </div>
+    <div class="col s4">
+      <h5>{{task.estimated}}</h5>
+      <span class="title">Estimated</span>
+    </div>
+    <div class="col s4">
+      <h5>{{task.spent}}</h5>
+      <span class="title">Spent</span>
+    </div>
+  </div>
+  <div id="chartdiv" [style.width.%]="100" [style.height.px]="500"></div>
+
+  <div class="task-manages z-depth-3">
+    <table class="highlight">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Spent</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of task.tasks_manages">
+        <td>#{{task.task_id}}</td>
+        <td>{{task.name}}</td>
+        <td>{{item.time}}</td>
+        <td>{{item.date}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>

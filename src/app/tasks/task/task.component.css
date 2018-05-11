@@ -1,0 +1,42 @@
+a{
+  color: #494949;
+}
+td{
+  padding: 5px !important;
+}
+td img{
+  width: 40px;
+}
+td.project{ font-style: italic; color: #969696;}
+td input{
+  width: 30px;
+  margin: 0 !important;
+}
+td.status span{
+  font-size: 12px;
+  color: #ffffff;
+  padding: 3px 10px;
+  background-color: #fff;
+  border-radius:4px;
+  text-align: left;
+  cursor: pointer;
+}
+td.status span.completed{
+  background-color: #4877be;
+}
+td.status span.done{
+  background-color: #4ddf67;
+}
+td.status span.in-progress{
+  background-color: #ffb36f;
+}
+td.status{
+  position: relative;
+}
+.dropdown-status{
+  position: absolute;
+  background-color: #f4f4f4;
+  z-index: 1000;
+  padding: 5px 15px;
+  left: -7px;
+}

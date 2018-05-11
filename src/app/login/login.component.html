@@ -1,0 +1,16 @@
+<section class="container">
+
+    <form class="z-depth-4" (submit)="auth(login.value,password.value)">
+      <h5>Login</h5>
+        <div class="input-field">
+          <input id="login" #login name="login" type="text" class="validate" >
+          <label for="login">Login</label>
+        </div>
+        <div class="input-field">
+          <input #password id="password" name="password" type="password">
+          <label for="password">Password</label>
+        </div>
+        <button class="btn" type="submit">Login</button>
+    </form>
+
+</section>

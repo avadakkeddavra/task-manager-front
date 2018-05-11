@@ -1,0 +1,16 @@
+button.pull-left{
+  padding: 0px 5px;
+}
+.show-form{
+  display: block;
+  width: 200px;
+  text-align: center;
+  font-size: 14px;
+  margin: 20px auto;
+}
+.show-form i{
+  font-size: 14px;
+}
+form{
+  margin-top: 20px;
+}

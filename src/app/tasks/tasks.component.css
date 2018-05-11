@@ -1,0 +1,9 @@
+section.tasks{
+  padding: 20px 40px;
+  margin-bottom: 20px;
+}
+
+
+app-task{
+  display: table-row;
+}

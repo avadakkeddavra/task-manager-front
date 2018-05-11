@@ -1,0 +1,23 @@
+<app-create-task (createTaskAction)="addTask($event)"></app-create-task>
+<section class="tasks container z-depth-4">
+  <table class="table highlight ">
+    <thead>
+        <tr>
+          <th></th>
+          <th>#</th>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Project</th>
+          <th>Stage</th>
+          <th>Estimate</th>
+          <th>Spent</th>
+          <th>Date</th>
+          <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <app-task *ngFor="let task of tasks" [task]="task"></app-task>
+    </tbody>
+  </table>
+</section>
+<app-pagination [pages]="paginationPages" (onChanged)="onChanged($event)"></app-pagination>

@@ -1,0 +1,24 @@
+<ng-content></ng-content>
+
+<td>
+  <img
+    src="/assets/images/task.png"
+    src="{{task.type == 1 ? '/assets/images/task.png' : task.type == 2 ? '/assets/images/debug.png' : '/assets/images/test.png'}}"
+    alt="">
+</td>
+<td>#{{task.task_id}}</td>
+<td><a routerLink="/task/{{task.id}}">{{task.name}}</a></td>
+<td class="status">
+  <span (click)="toggleStatus()" class="{{task.status == 1 ? 'in-progress' : task.status == 2 ? 'done' : 'completed'}}">{{task.status == 1 ? 'in progress' : task.status == 2 ? 'done' : "completed"}}</span>
+  <ul [class]="changeStatus === true ? 'dropdown-status z-depth-3': 'hide dropdown-status' ">
+    <li><span (click)="changeTasksStatus(1)" class="in-progress">in progress</span></li>
+    <li><span (click)="changeTasksStatus(2)" class="done">done</span></li>
+    <li><span (click)="changeTasksStatus(3)" class="completed">completed</span></li>
+  </ul>
+</td>
+<td class="project">"{{task.project.name}}"</td>
+<td class="project">"{{task.project_stage.name}}"</td>
+<td><input type="text" name="estimated" value="{{task.estimated}}" #estimate  (change)="changeEsimate(estimate.value)"></td>
+<td><input type="text" name="spent" value="{{task.spent}}" #spent (change)="changeSpent(spent.value)"></td>
+<td>{{task.updated_at | date:'dd MMMM'}}</td>
+<td class="red-text"><i class="fa fa-trash" (click)="deleteTask(task.id)"></i></td>
