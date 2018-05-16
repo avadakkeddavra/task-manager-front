@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
 import {ProjectsService} from "../../projects.service";
 import {Form} from "@angular/forms";
 import {TasksService} from "../../tasks.service";
@@ -11,10 +11,9 @@ import {AuthService} from "../../auth.service";
   providers:[ProjectsService]
 })
 export class CreateTaskComponent implements OnInit {
-
+  @Input() projects;
   @Output() createTaskAction = new EventEmitter();
   formShow = 0;
-  projects:any;
 
   task:any = {};
 
@@ -22,11 +21,7 @@ export class CreateTaskComponent implements OnInit {
               private taskService:TasksService,
               private auth:AuthService) {}
 
-  ngOnInit() {
-      this.projectService.getProjects().subscribe(response =>{
-        this.projects = response;
-      })
-  }
+  ngOnInit() {}
 
   showForm(){
     if(this.formShow == 0){

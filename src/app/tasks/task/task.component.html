@@ -19,6 +19,6 @@
 <td class="project">"{{task.project.name}}"</td>
 <td class="project">"{{task.project_stage.name}}"</td>
 <td><input type="text" name="estimated" value="{{task.estimated}}" #estimate  (change)="changeEsimate(estimate.value)"></td>
-<td><input type="text" name="spent" value="{{task.spent}}" #spent (change)="changeSpent(spent.value)"></td>
+<td>{{task.spent}} <input type="text" #spent [class]="showAddHours == false ? 'hide':'addHours'" (change)="changeSpent(spent)" > <i class="fa fa-plus green-text text-lighten-1" (click)="showAddHoursAction()"></i></td>
 <td>{{task.updated_at | date:'dd MMMM'}}</td>
 <td class="red-text"><i class="fa fa-trash" (click)="deleteTask(task.id)"></i></td>

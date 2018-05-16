@@ -19,6 +19,7 @@ import {AmChartsModule} from "@amcharts/amcharts3-angular";
 import { CreateTaskComponent } from './tasks/create-task/create-task.component';
 import { TaskComponent } from './tasks/task/task.component';
 import { PaginationComponent } from './tasks/pagination/pagination.component';
+import { SettingsComponent } from './tasks/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PaginationComponent } from './tasks/pagination/pagination.component';
     TaskSingleComponent,
     CreateTaskComponent,
     TaskComponent,
-    PaginationComponent
+    PaginationComponent,
+    SettingsComponent
   ],
   imports: [
     MaterializeModule,

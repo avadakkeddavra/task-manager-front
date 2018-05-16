@@ -19,3 +19,89 @@
   font-size: 12px;
   font-weight: bold;
 }
+td{
+  padding: 0px 10px;
+}
+td i{
+  cursor: pointer;
+}
+input{
+  margin: 0 !important;
+}
+.project-label{
+  display: inline-block;
+  padding: 10px 20px;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 13px;
+  text-align: center;
+  position: absolute;
+  top: 100px;
+  left:50px;
+}
+.stage-label{
+  display: inline-block;
+  color: #444;
+  text-transform: uppercase;
+  font-size: 13px;
+  text-align: center;
+  position: absolute;
+  top: 100px;
+  right:50px;
+  width: 150px;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+.stage-label span{
+  display: block;
+  padding: 10px 20px;
+}
+.stage-label.active{
+  width: 200px;
+  text-align: left;
+  transition: 0.3s all;
+
+}
+.stage-label .stages_list{
+  position: absolute;
+  top:100%;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  background-color: #e5e5e5;
+
+
+}
+.stage-label .stages_list.hidden{
+  top: 120%;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0s all;
+
+}
+.stage-label .stages_list.visible{
+  top: 100%;
+  opacity:1;
+  visibility: visible;
+  transition: 0.1s all;
+}
+.stage-label .stages_list li{
+  padding: 7px 15px;
+  cursor: pointer;
+  color: #252525;
+}
+@media (max-width:1000px)
+{
+  .project-label{
+    position: relative;
+    top: 20px;
+    left: 25%;
+    margin: 0px -70px;
+  }
+  .stage-label{
+    position: relative;
+    top: 20px;
+    left: 70%;
+    /*margin: 0px -70px;*/
+  }
+}

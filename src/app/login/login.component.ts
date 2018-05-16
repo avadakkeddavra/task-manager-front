@@ -10,6 +10,8 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
+  errors:Array<any> = [];
+
   constructor(private authenticate: AuthService,private router: Router) { }
 
   ngOnInit() {
@@ -30,9 +32,17 @@ export class LoginComponent implements OnInit {
     this.authenticate.login(data).subscribe(user => {
 
         let response:any = user;
-        localStorage.setItem('user_token',response.token);
-        this.authenticate.setCurrentUser(response.token);
-        this.router.navigate(['/']);
+        if(response.success == true)
+        {
+          localStorage.setItem('user_token',response.token);
+          this.authenticate.setCurrentUser(response.token);
+          this.router.navigate(['/']);
+        }else{
+          this.errors.push({
+            title:'Login failed',
+            message:'You can not login with this creditinails',
+          })
+        }
 
     });
 

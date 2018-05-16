@@ -1,0 +1,41 @@
+ul{
+  list-style: none;
+}
+ul li{
+  display: inline-block;
+}
+ul li button:not(.btn){
+  background-color: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  color: #777777;
+}
+ul li button i{
+  font-size: 18px;
+}
+.dropdown {
+  position: relative;
+}
+.dropdown-content-custom{
+  position: absolute;
+  right: 0;
+  padding: 10px 20px;
+  width: 500px  ;
+  background-color: #fff;
+}
+.dropdown-content-custom h6{
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+.dropdown-content-custom #reset{
+  height: 25px;
+  line-height: 25px;
+}
+button.btn.btn-small{
+  padding: 0px 20px;
+  line-height: 30px;
+  height: 30px;
+  font-size: 12px;
+}

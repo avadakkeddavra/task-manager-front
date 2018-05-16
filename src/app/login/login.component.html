@@ -1,5 +1,13 @@
 <section class="container">
 
+  <div [class]="errors.length == 0 ? 'hide': 'errors z-depth-4'">
+    <ul class="collapsible">
+      <li *ngFor="let error of errors">
+        <div class="collapsible-header red darken-1 white-text">{{error.title}}</div>
+        <div class="collapsible-body"><span>{{error.message}}</span></div>
+      </li>
+    </ul>
+  </div>
     <form class="z-depth-4" (submit)="auth(login.value,password.value)">
       <h5>Login</h5>
         <div class="input-field">

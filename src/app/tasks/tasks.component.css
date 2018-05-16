@@ -7,3 +7,7 @@ section.tasks{
 app-task{
   display: table-row;
 }
+section.container{
+  width: 90%;
+  max-width: 2000px !important;
+}

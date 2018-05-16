@@ -8,9 +8,16 @@ td img{
   width: 40px;
 }
 td.project{ font-style: italic; color: #969696;}
-td input{
-  width: 30px;
+input.addHours{
+  width: 40px;
   margin: 0 !important;
+  text-align: center;
+}
+td input:not(.addHours){
+  width: 70px;
+  margin: 0 !important;
+  border-bottom: none;
+  text-align: center;
 }
 td.status span{
   font-size: 12px;

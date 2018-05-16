@@ -10,9 +10,15 @@ export class TasksService {
 
   constructor(private auth: AuthService,private http:HttpClient) { }
 
-  getAllTasks(page = null)
+  getAllTasks(page = null,filters = null)
   {
     let user = this.auth.getCurrentUser();
+
+
+    if(filters != null)
+    {}
+
+
 
     if(page != null)
     {
@@ -26,7 +32,9 @@ export class TasksService {
   }
   getTaskManage(id)
   {
-    return this.http.get('http://localhost:4200/api/task/'+id).map(response => {return response});
+    return this.http.get('http://localhost:4200/api/task/'+id).map(response => {
+      return response
+    });
   }
 
   deleteTask(id)
@@ -40,6 +48,16 @@ export class TasksService {
     return this.http.post('http://localhost:4200/api/delete/'+id,{'user_id':this.auth.getCurrentUser()},httpOptions);
   }
 
+  deleteManage(id)
+  {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    return this.http.post('http://localhost:4200/api/deletemanage/'+id,JSON.stringify({'user_id':this.auth.getCurrentUser()}),httpOptions);
+  }
+
   createTask(data)
   {
     const httpOptions = {
@@ -50,4 +68,40 @@ export class TasksService {
     console.log(data);
     return this.http.post('http://localhost:4200/api/create',JSON.stringify(data),httpOptions);
   }
+
+  update(id,column,value)
+  {
+    let data = {
+      col:column,
+      val:value,
+      id:id,
+      user_id:this.auth.getCurrentUser()
+    }
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+
+    return this.http.post('http://localhost:4200/api/update/'+id,JSON.stringify(data),httpOptions);
+
+  }
+  updateManage(id,column,value)
+  {
+    let data = {
+      col:column,
+      val:value,
+      id:id,
+      user_id:this.auth.getCurrentUser()
+    };
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+
+    return this.http.post('http://localhost:4200/api/updatemanage/'+id,JSON.stringify(data),httpOptions);
+  }
+
 }

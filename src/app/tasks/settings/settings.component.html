@@ -1,0 +1,70 @@
+<ng-content></ng-content>
+<ul>
+  <li>
+    <button type="button">
+      <i class="fa fa-search"></i>
+    </button>
+  </li>
+  <li class="dropdown">
+    <button type="button">
+      <i class="fa fa-filter"></i>
+    </button>
+    <div class="dropdown-content-custom z-depth-2">
+      <h6>Filters</h6>
+      <button type="button" class="btn-flat" id="reset">reset</button>
+      <form action="" ngForm="form" #form (submit)="applyFilters($event,form)">
+        <div class="row">
+
+            <div class="col s6">
+                <div class="input-field">
+
+                    <select materialize="material_select" name="status" id="status">
+                      <option value="*" selected>All</option>
+                      <option value="1">in progress</option>
+                      <option value="2">done</option>
+                      <option value="3">completed</option>
+                    </select>
+
+                    <label for="status">Status</label>
+
+                </div>
+
+                <div class="input-field">
+
+                  <select materialize="material_select" name="stage" id="stage">
+                    <option value="*" selected>All</option>
+                    <option *ngFor="let stage of stages" value="{{stage.id}}">{{stage.name}}</option>
+                  </select>
+                  <label for="stage">Stages</label>
+                </div>
+
+            </div>
+
+            <div class="col s6">
+              <div class="input-field">
+
+                <select materialize="material_select" name="project" id="project">
+                  <option value="*" selected>All</option>
+                  <option *ngFor="let project of projects" value="{{project.id}}">{{project.name}}</option>
+                </select>
+
+                <label for="project">Projects</label>
+
+              </div>
+
+              <div class="input-field">
+                <input type="number" id="date" name="date" materialize="pickadate" #date required>
+                <label for="date">Date</label>
+              </div>
+
+            </div>
+          <div class="col s12">
+            <button class="btn btn-small blue" >Apply</button>
+          </div>
+
+        </div>
+
+      </form>
+    </div>
+  </li>
+</ul>

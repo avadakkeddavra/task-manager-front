@@ -1,5 +1,16 @@
-<app-create-task (createTaskAction)="addTask($event)"></app-create-task>
+<app-create-task [projects]="projects" (createTaskAction)="addTask($event)"></app-create-task>
 <section class="tasks container z-depth-4">
+  <div class="row">
+    <div class="col s4">
+      <h5><b>Task Manages</b></h5>
+    </div>
+    <div class="col s8">
+      <div class="pull-right">
+        <app-settings [projects]="projects" [stages]="stages" (filters)="filtersAction($event)"></app-settings>
+      </div>
+    </div>
+  </div>
+
   <table class="table highlight ">
     <thead>
         <tr>

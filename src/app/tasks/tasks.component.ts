@@ -1,26 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import {TasksService} from "../tasks.service";
+import {ProjectsService} from "../projects.service";
 
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css'],
-  providers: [TasksService]
+  providers: [TasksService,ProjectsService]
 })
 export class TasksComponent implements OnInit {
 
 
   tasks:Array<any> = [];
   paginationPages:Array<any> = [];
+  projects:any;
+  stages:any;
 
-  constructor(private TasksService:TasksService) { }
+
+  constructor(private TasksService:TasksService,
+              private projectService:ProjectsService) { }
 
   ngOnInit() {
+
+
+    this.projectService.getAllStages().subscribe(response =>{
+      this.stages = response;
+    });
+
+
+    this.projectService.getProjects().subscribe(response =>{
+      this.projects = response;
+    });
+
     this.TasksService.getAllTasks().subscribe(tasks => {
       let response:any = tasks;
 
       this.tasks = response.tasks;
-      let count:any = Number(response.count/10).toFixed();
+      let count:any = Math.ceil(response.count/10);
 
       for(let i = 0; i < count ;i++){
         this.paginationPages.push({
@@ -29,8 +45,15 @@ export class TasksComponent implements OnInit {
         });
       }
 
-    })
+    });
+
   }
+
+  filtersAction(filters)
+  {
+      console.log(filters);
+  }
+
   addTask(task)
   {
       this.TasksService.createTask(task).subscribe(response => {

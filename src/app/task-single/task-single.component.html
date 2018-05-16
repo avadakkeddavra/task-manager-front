@@ -1,3 +1,13 @@
+<div class="project-label z-depth-1 blue">
+  {{task.project.name}}
+</div>
+<div class="stage-label z-depth-1 white"  [class]="showStages == false ? 'stage-label z-depth-1 white':'stage-label z-depth-1 white active'">
+  <span (click)="toggleStages()">{{task.project_stage.name}}</span>
+  <ul [class]="showStages == false ? 'stages_list hidden  z-depth-1':'stages_list visible  z-depth-1'">
+      <li *ngFor="let stage of stages" [class]="stage.id == task.project_stage.id ? 'hide':''" (click)="changeStage(task.id,stage.id)">{{stage.name}}</li>
+  </ul>
+
+</div>
 <section class="task-single container">
   <h3>{{task.name}}</h3>
   <div class="row task-info">
@@ -24,14 +34,31 @@
           <th>Name</th>
           <th>Spent</th>
           <th>Date</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
       <tr *ngFor="let item of task.tasks_manages">
         <td>#{{task.task_id}}</td>
         <td>{{task.name}}</td>
-        <td>{{item.time}}</td>
-        <td>{{item.date}}</td>
+        <td>
+          <label for="spent">Manage date</label>
+          <input type="number" id="spent" #spent value="{{item.time}}" (change)="changeTime(item.id,spent.value)"></td>
+        <td>
+          <label for="date">Manage date</label>
+          <input type="number"
+                 [(ngModel)]="item.date"
+                 id="date"
+                 name="date"
+                 #date
+                 materialize="pickadate"
+                 [materializeParams]="[
+                 {format: 'yyyy-mm-dd'}
+                 ]"
+                 (input)="changeDate(item.id,date.value)"
+          >
+        </td>
+        <td><i class="fa fa-trash-o red-text" (click)="deleteManage(item.id)"></i></td>
       </tr>
       </tbody>
     </table>
