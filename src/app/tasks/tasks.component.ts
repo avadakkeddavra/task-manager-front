@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TasksService} from "../tasks.service";
 import {ProjectsService} from "../projects.service";
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-tasks',
@@ -15,7 +16,7 @@ export class TasksComponent implements OnInit {
   paginationPages:Array<any> = [];
   projects:any;
   stages:any;
-
+  filters:any = {};
 
   constructor(private TasksService:TasksService,
               private projectService:ProjectsService) { }
@@ -34,24 +35,42 @@ export class TasksComponent implements OnInit {
 
     this.TasksService.getAllTasks().subscribe(tasks => {
       let response:any = tasks;
-
-      this.tasks = response.tasks;
-      let count:any = Math.ceil(response.count/10);
-
-      for(let i = 0; i < count ;i++){
-        this.paginationPages.push({
-          number:i+1,
-          link:'/tasks?page='+(i+1)
-        });
-      }
-
+      this.rebuildComponent(response);
     });
+
+  }
+
+  resetAction(type)
+  {
+    this.filters = {};
+    this.TasksService.getAllTasks().subscribe(tasks => {
+      let response:any = tasks;
+      this.rebuildComponent(response);
+    });
+  }
+
+  private rebuildComponent(response)
+  {
+
+    this.tasks = response.tasks;
+    let count:any = Math.ceil(response.count/10);
+    this.paginationPages = [];
+    for(let i = 0; i < count ;i++){
+      this.paginationPages.push({
+        number:i+1,
+        link:'/tasks?page='+(i+1)
+      });
+    }
 
   }
 
   filtersAction(filters)
   {
-      console.log(filters);
+    this.filters = filters;
+    this.TasksService.getAllTasks(1,filters).subscribe(tasks => {
+      let response:any = tasks;
+      this.rebuildComponent(response);
+    })
   }
 
   addTask(task)
@@ -63,9 +82,9 @@ export class TasksComponent implements OnInit {
   }
   onChanged(page)
   {
-    this.TasksService.getAllTasks(page).subscribe(response => {
-      let responseData:any = response;
-      this.tasks = responseData.tasks;
+    this.TasksService.getAllTasks(page,this.filters).subscribe(tasks => {
+      let response:any = tasks;
+      this.rebuildComponent(response);
     })
   }
 

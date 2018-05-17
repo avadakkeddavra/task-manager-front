@@ -7,11 +7,11 @@
   </li>
   <li class="dropdown">
     <button type="button">
-      <i class="fa fa-filter"></i>
+      <i class="fa fa-filter" (click)="toggleFilters()"></i>
     </button>
-    <div class="dropdown-content-custom z-depth-2">
+    <div class="dropdown-content-custom z-depth-2" [style.display]="showfilters == true ? 'block': 'none'">
       <h6>Filters</h6>
-      <button type="button" class="btn-flat" id="reset">reset</button>
+      <button type="button" class="btn-flat" id="reset" (click)="resetAction(form)">reset</button>
       <form action="" ngForm="form" #form (submit)="applyFilters($event,form)">
         <div class="row">
 
@@ -31,7 +31,7 @@
 
                 <div class="input-field">
 
-                  <select materialize="material_select" name="stage" id="stage">
+                  <select materialize="material_select" name="stage_id" id="stage">
                     <option value="*" selected>All</option>
                     <option *ngFor="let stage of stages" value="{{stage.id}}">{{stage.name}}</option>
                   </select>
@@ -43,7 +43,7 @@
             <div class="col s6">
               <div class="input-field">
 
-                <select materialize="material_select" name="project" id="project">
+                <select materialize="material_select" name="project_id" id="project">
                   <option value="*" selected>All</option>
                   <option *ngFor="let project of projects" value="{{project.id}}">{{project.name}}</option>
                 </select>

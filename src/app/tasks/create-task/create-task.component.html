@@ -1,5 +1,5 @@
 <ng-content></ng-content>
-<section class="create-task container">
+<section class="create-task">
   <form action="" ngForm="form"  [class]="formShow == 1 ? '': 'hide' " #form (submit)="createTask($event,form)" >
     <div class="row">
       <div class="col s1 input-field">
@@ -18,11 +18,17 @@
         </select>
         <label for="status">Status</label>
       </div>
-      <div class="col s3 input-field">
+      <div class="col s2 input-field">
         <select name="project_id" id="project_id" materialize="material_select" #project required>
           <option *ngFor="let project of projects" value="{{project.id}}">{{project.name}}</option>
         </select>
         <label for="project_id">Project</label>
+      </div>
+      <div class="col s1 input-field">
+        <select name="stage_id" id="stage_id" materialize="material_select" #project required>
+          <option *ngFor="let stage of stages" value="{{stage.id}}">{{stage.name}}</option>
+        </select>
+        <label for="project_id">Stage</label>
       </div>
       <div class="col s1 input-field">
         <input type="number" id="estimated" name="estimated" #estimated required>

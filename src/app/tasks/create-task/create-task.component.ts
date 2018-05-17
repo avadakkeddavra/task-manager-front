@@ -12,6 +12,7 @@ import {AuthService} from "../../auth.service";
 })
 export class CreateTaskComponent implements OnInit {
   @Input() projects;
+  @Input() stages;
   @Output() createTaskAction = new EventEmitter();
   formShow = 0;
 

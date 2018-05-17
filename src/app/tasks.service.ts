@@ -16,13 +16,21 @@ export class TasksService {
 
 
     if(filters != null)
-    {}
+    {
+      var query = '';
 
+      for(let i in filters){
+        query+='&'+i+'='+filters[i];
+      }
 
+      console.log(filters);
+    }else{
+      var query = '';
+    }
 
     if(page != null)
     {
-      var url ='http://localhost:4200/api/user/'+user+'?page='+page;
+      var url ='http://localhost:4200/api/user/'+user+'?page='+page+query;
     }else{
       var url ='http://localhost:4200/api/user/'+user;
     }
@@ -66,6 +74,7 @@ export class TasksService {
       })
     };
     console.log(data);
+    
     return this.http.post('http://localhost:4200/api/create',JSON.stringify(data),httpOptions);
   }
 

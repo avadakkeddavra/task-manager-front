@@ -11,16 +11,29 @@ export class SettingsComponent implements OnInit {
   @Input() stages;
   @Input() projects;
   @Output() filters = new EventEmitter();
+  @Output() reset = new EventEmitter();
+
+  showfilters:boolean = false;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  resetAction(form) {
+    form.reset();
+    this.reset.emit('reset');
+  }
+
+  toggleFilters()
+  {
+    this.showfilters = !this.showfilters;
+  }
   applyFilters(event,form)
   {
 
     event.preventDefault();
-    let data:Array<any> = [];
+    let data:object = {};
     for(let i in form.elements)
     {
       let item = form.elements[i];
@@ -28,9 +41,8 @@ export class SettingsComponent implements OnInit {
       {
         if(item.value != '' && item.value != '*')
         {
-          let itemObj:object = {};
-          itemObj[item.name]=item.value;
-          data.push(itemObj);
+          data[item.name]=item.value;
+
         }
 
       }
