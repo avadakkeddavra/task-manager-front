@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {TasksService} from "../tasks.service";
-import {ProjectsService} from "../projects.service";
-import {forEach} from "@angular/router/src/utils/collection";
+import {TasksService} from "./../../tasks.service";
+import {ProjectsService} from "./../../projects.service";
 
 @Component({
   selector: 'app-tasks',

@@ -1,8 +1,7 @@
 import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
-import {ProjectsService} from "../../projects.service";
-import {Form} from "@angular/forms";
-import {TasksService} from "../../tasks.service";
-import {AuthService} from "../../auth.service";
+import {ProjectsService} from "./../../../projects.service";
+import {TasksService} from "./../../../tasks.service";
+import {AuthService} from "./../../../auth.service";
 
 @Component({
   selector: 'app-create-task',

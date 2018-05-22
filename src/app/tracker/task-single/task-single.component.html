@@ -4,7 +4,7 @@
 <div class="stage-label z-depth-1 white"  [class]="showStages == false ? 'stage-label z-depth-1 white':'stage-label z-depth-1 white active'">
   <span (click)="toggleStages()">{{task.project_stage.name}}</span>
   <ul [class]="showStages == false ? 'stages_list hidden  z-depth-1':'stages_list visible  z-depth-1'">
-      <li *ngFor="let stage of stages" [class]="stage.id == task.project_stage.id ? 'hide':''" (click)="changeStage(task.id,stage.id)">{{stage.name}}</li>
+      <li *ngFor="let stage of stages" [class]="stage.id == task.project_stage.id ? 'hide':''" (click)="changeStage(task.id,stage.id,stage.name)">{{stage.name}}</li>
   </ul>
 
 </div>

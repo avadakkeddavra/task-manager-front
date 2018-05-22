@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TasksService} from "../../tasks.service";
+import {TasksService} from "./../../../tasks.service";
 import {toast} from "angular2-materialize";
-import {ProjectsService} from "../../projects.service";
 
 @Component({
   selector: 'app-task',

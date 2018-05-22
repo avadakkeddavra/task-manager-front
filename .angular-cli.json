@@ -20,6 +20,7 @@
       "prefix": "app",
       "styles": [
         "styles.css",
+        "../node_modules/chart.js/src/chart.js",
         "../node_modules/font-awesome/css/font-awesome.css",
         "../node_modules/materialize-css/dist/css/materialize.css"
       ],

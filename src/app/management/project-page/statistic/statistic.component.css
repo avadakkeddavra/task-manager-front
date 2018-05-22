@@ -1,0 +1,13 @@
+.row{
+  margin: 0;
+}
+.statistic{
+
+}
+.statistic-card .card .card-content{
+  padding: 20px 10px;
+}
+.statistic-card span.value{
+  font-size: 25px;
+  color: #ffffff;
+}

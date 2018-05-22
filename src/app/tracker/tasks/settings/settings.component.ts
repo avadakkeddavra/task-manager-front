@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Form} from "@angular/forms";
 
 @Component({
   selector: 'app-settings',

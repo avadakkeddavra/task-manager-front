@@ -1,0 +1,63 @@
+<ng-content></ng-content>
+<section class="statistic">
+  <div class="row">
+    <div class="col s12 m3 statistic-card">
+      <div class="card blue darken-1">
+        <div class="card-content white-text">
+          <div class="row">
+            <div class="col s10">
+              <span class="value">{{stat.hours.month}}</span>
+              <br>
+              Project monthly hours
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m3 statistic-card">
+      <div class="card orange darken-1">
+        <div class="card-content white-text">
+          <div class="row">
+            <div class="col s10">
+              <span class="value">{{stat.hours.all}}</span>
+              <br>
+              Project Total hours
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col s12 m3 statistic-card">
+      <div class="card purple lighten-2">
+        <div class="card-content white-text">
+          <div class="row">
+            <div class="col s10">
+              <span class="value">{{stat.tasks.month}}</span>
+              <br>
+              Project monthly Tasks
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col s12 m3 statistic-card">
+      <div class="card red lighten-1">
+        <div class="card-content white-text">
+          <div class="row">
+            <div class="col s10">
+              <span class="value">{{stat.tasks.all}}</span>
+              <br>
+              Project All Tasks
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
